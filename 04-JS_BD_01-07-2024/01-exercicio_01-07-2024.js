@@ -28,30 +28,25 @@
  verifica se ela é válida ou não e retorna sempre um valor corrigido entre 0 e
  100.*/
     function limitaPosicao(posicao){
-        const correcaoPositivo = 100;
-        const correcaoNegativo = 0;
-        if(posicao>=0 && posicao<=100){
-            console.log(`A posição digitada (${posicao}) é válida pois está no limite do  layout `);
+        if(posicao <0){
+            return 0;
+        }else if(posicao >100){
+            return 100;
         }else{
-            console.log(`A posição digitada (${posicao}) é invalida pois sai do limite estabelecido no layout`);
-            
-            if(posicao >100){
-                console.log(`A posição digitada ultrapassa o limite máximo de ${correcaoPositivo} e foi corrigida para posição máxima da tela . `);
-                posicao = correcaoPositivo;
-                console.log(`Valor corrigido : ${posicao}`);
-            }else if(posicao <0){
-                console.log(`A posição digitada ultrapassa o limite máximo de ${correcaoNegativo} e foi corrigida para posição mínima da tela. `);
-                posicao = correcaoNegativo;
-                console.log(`Valor corrigido : ${posicao}`);
-            } 
+            return posicao;
         }
     }
 
-    limitaPosicao(-1000);
-    limitaPosicao(80);
-    limitaPosicao(110)
+    console.log(limitaPosicao(120));
+    console.log(limitaPosicao(-50));
+    console.log(limitaPosicao(70));
+    console.log()
 
+    let soma =10;
+    let subtracao = 10;
+    let multiplicacao = 10;
 
+   
 
 
 
