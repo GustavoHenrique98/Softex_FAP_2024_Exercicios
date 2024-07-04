@@ -26,29 +26,18 @@
  menor que 0 sairia fora da tela. Precisamos de uma função LimitaPosicao
  que recebe uma POSICAO que pode ter qualquer valor positivo ou negativo,
  verifica se ela é válida ou não e retorna sempre um valor corrigido entre 0 e
- 100.*/
+ 100. */
+
     function limitaPosicao(posicao){
-        if(posicao <0){
+        if(posicao<0){
             return 0;
-        }else if(posicao >100){
+        }else if(posicao>100){
             return 100;
         }else{
             return posicao;
         }
     }
 
-    console.log(limitaPosicao(120));
+    console.log(limitaPosicao(50));
+    console.log(limitaPosicao(150));
     console.log(limitaPosicao(-50));
-    console.log(limitaPosicao(70));
-    console.log()
-
-    let soma =10;
-    let subtracao = 10;
-    let multiplicacao = 10;
-
-   
-
-
-
-
-

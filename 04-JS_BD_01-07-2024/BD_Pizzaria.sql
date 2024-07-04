@@ -1,6 +1,6 @@
 create database pizzaria;
 use pizzaria;
--- drop database pizzaria;
+ drop database pizzaria;
 
 create table Cliente(
 	id_cliente int primary key not null,
@@ -13,7 +13,7 @@ Create table Pedido(
 	id_pedido int primary key not null,
     cliente_id int not null,
     data date,
-    total decimal(3,2),
+    total float,
     foreign key(cliente_id) references Cliente(id_cliente)
 );
 
@@ -21,7 +21,7 @@ Create table Pedido(
 create table Pizza(
 	id_pizza int primary key not null,
     nome varchar(50),
-    preco decimal(2,2)
+    preco float
 );
 
 create table Ingrediente(
@@ -50,7 +50,7 @@ create table Itens_do_pedido(
 INSERT INTO Cliente (id_cliente, nome, telefone, endereco)
 VALUES
     (1, 'João Silva', '(81) 9999-8888', 'Rua das Flores, 123'),
-    (2, 'Maria Santos', '(811) 7777-6666', 'Avenida Principal, 456'),
+    (2, 'Maria Santos', '(81) 7777-6666', 'Avenida Principal, 456'),
     (3, 'José Oliveira', '(81) 3333-4444', 'Rua das Árvores, 789');
 
 -- Inserindo dados na tabela Pizza
@@ -105,7 +105,7 @@ VALUES
     (8, 5, 3, 1);
 
 
--- consultas das tabelas
+-- consultas de tabelas
 
 -- Exibindo a tabela de cliente
 SELECT * FROM Cliente;
@@ -114,7 +114,7 @@ SELECT * FROM Cliente;
 SELECT * FROM Pizza;
 
 -- Exibindo a tabela de Ingrediente
-SELECT * FROM Ingredientes;
+SELECT * FROM Ingrediente;
 
 -- Exibindo a tabela de pedido
 SELECT * FROM Pedido;
@@ -122,27 +122,22 @@ SELECT * FROM Pedido;
 -- Exibindo a tabela de Pizza_ingrediente
 select*from Pizzas_ingrediente;
 
--- Exibindo a tabela de Ingredientes
+-- Listando ingredientes de uma pizza específica.
+SELECT Pizza.nome AS nome_da_pizza, Ingrediente.nome AS nome_do_ingrediente
+FROM Pizza
+INNER JOIN Pizzas_ingrediente ON Pizza.id_pizza = Pizzas_ingrediente.pizza_id
+INNER JOIN Ingrediente ON Pizzas_ingrediente.ingrediente_id = Ingrediente.id_ingrediente
+WHERE Pizza.nome = 'Calabresa';
 
-
- -- Listar ingredientes de uma pizza específica .
-
-
--- Listar todos os pedidos de um cliente específico
-SELECT Pedido.id_pedido, Pedido.data, Pedido.total
-FROM Pedido
-WHERE Pedido.cliente_id = 1;
-
--- Calcular o total de um pedido 
-SELECT Cliente.nome , SUM(Pedido.total) AS total
+-- Listar todos os pedidos de um cliente específico 
+SELECT Cliente.nome AS nome_cliente , id_pedido, Pedido.data AS data_do_pedido, Pedido.total AS total_pedido
 FROM Pedido
 INNER JOIN Cliente ON Pedido.cliente_id = Cliente.id_cliente
-WHERE Pedido.cliente_id = 1;
+WHERE Cliente.id_cliente = 1;
 
-
-
-
-
-
-
-
+-- Calcular o total de um pedido específico:
+-- Abaixo estamos fazendo o resultado do total de um pedido onde o id e =1 
+SELECT SUM(Pizza.preco * Itens_do_pedido.quantidade) AS total_calculado
+FROM Itens_do_pedido
+INNER JOIN Pizza ON Itens_do_pedido.pizza_id = Pizza.id_pizza
+WHERE Itens_do_pedido.pedido_id = 1;
