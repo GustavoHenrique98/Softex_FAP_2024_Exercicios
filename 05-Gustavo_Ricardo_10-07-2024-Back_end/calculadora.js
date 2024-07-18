@@ -27,7 +27,7 @@ alert(`Resultado da operação ${saida}`);
 
 let usuario = prompt("Digite o nome de usuário");
 let senha = prompt("Digite sua senha ");
-if((usuario =="gustavo" ||usuario=="ricardo")&& senha =="adm123"){
+if((usuario =="gustavo" ||usuario=="ricardo") && senha =="adm123"){
     alert(`Seja bem vindo ${usuario}!! `);
 }else{
     alert(`O usuário ${usuario} não existe!`);
