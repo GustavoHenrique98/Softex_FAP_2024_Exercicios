@@ -1,62 +1,57 @@
 // Crie uma Superclasse - Animal
-
 // Crie duas Subclasses  - Pássaro e Peixe
-
 // Cada classe deve ter um método fazerSom() que imprime um som específico associado ao tipo de animal.
 // Requisitos :
-
 // Superclasse Animal
 // Construtor que inicializa a propriedade nome.
 // Método fazerSom() que deve ser sobrescrito pelas subclasses.
-
 // Subclasse Pássaro
 // Construtor que inicializa as propriedades nome e especie.
 // Método fazerSom() que imprime um som específico para pássaros.
-
 // Subclasse Peixe
 // Construtor que inicializa as propriedades nome e tipo.
 // Método fazerSom() que imprime um som específico para peixes.
 
-class Animal{
+
+class Animal {
     nome;
     constructor(nome){
-        this.nome = nome;
+        this.nome = nome
     }
 
-    fazerSom(som){
-        console.log(`O animal ${this.nome} faz ${som}`);
+    fazerSom(){
+        console.log("O animal está fazendo um som");
     }
 }
 
-class Passaro extends Animal{
+class Passaro extends Animal {
     especie;
-    constructor(nome,especie){
-        super(nome);
-        this.especie = especie;
+    constructor(nome, especie){
+        super(nome)
+        this.especie = especie
     }
-    fazerSom(){
-        console.log(`O pássaro ${this.nome} faz piu piu.`);
-    }
+
+    fazerSom(){ 
+        console.log(`O pássaro ${this.nome} esta fazendo piu piu!`);
+    }   
 }
 
-class Peixe extends Animal{
+class Peixe extends Animal { 
     tipo;
-    constructor(nome,tipo){
+    constructor(nome, tipo){
         super(nome);
-        this.tipo=tipo;
-
-    }
+        this.tipo = tipo;
+    }   
     fazerSom(){
-        console.log(`O Peixe ${this.nome} do tipo ${this.tipo} faz glub glub .`);
-    }
-}
+        console.log(`O ${this.nome} esta fazendo GLUB GLUB!`);
+    }   
+}   
 
-const gato = new Animal('Rogério');
-gato.fazerSom('Miau');
+const animal = new Animal("Cachorro");
+const passaro = new Passaro("Alfredo", "Tucano");
+const peixe = new Peixe("Rogério", "Tubarão");
 
-const canario = new Passaro('Gremilda')
-canario.fazerSom()
-
-const roberval = new Peixe('Roberval',' Cartilaginoso')
-roberval.fazerSom();
-
+//Métodos
+animal.fazerSom();
+passaro.fazerSom();
+peixe.fazerSom();
