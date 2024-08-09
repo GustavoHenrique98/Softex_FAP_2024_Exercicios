@@ -46,8 +46,8 @@ class Piano extends Instrumentomusical {
 //Instanciando classes
 
 try{
-    const eletronico = new Instrumentomusical();
-    console.log(Instrumentomusical);
+    const instrumento1 = new Instrumentomusical();
+    console.log(instrumento1);
 }catch(error){
     console.log(error.message);
 }
@@ -58,7 +58,4 @@ violao1.emitirSom();
 
 const piano1 = new Piano("Piano", "Yamaha", "YMP-150", 2023, "Classico");
 piano1.emitirSom();
-
-
-
 
