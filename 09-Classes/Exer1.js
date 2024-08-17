@@ -1,3 +1,4 @@
+let {escreve} = require('./escreve')
 // 1 - Crie uma classe base chamada ArtefatoMagico com os atributos nome, poder e
 // raridade.
 
@@ -80,7 +81,7 @@ class CristalMagico extends ArtefatoMagico{
 }
 
 const anel = new AnelMagico("Anel de Fogo", "Controle de Chamas", "Raro", "Fogo");
-const varinha = new VarinhaMagica("Varinha de Carvalho", "Feitiços Poderosos", "Épico", "Carvalho",);
+const varinha = new VarinhaMagica("Varinha de Carvalho", "Destruição", "Épico", "Carvalho",);
 const cristal = new CristalMagico("Cristal de Gelo", "Manipulação de Gelo", "Lendário", "Azul");
 
 anel.info();

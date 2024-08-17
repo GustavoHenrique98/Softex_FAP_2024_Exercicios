@@ -81,7 +81,7 @@ escreve();
 postImg.exibir();
 escreve();
 
-PostVideo.exibir()
+PostVideo.exibir();
 
 
 
